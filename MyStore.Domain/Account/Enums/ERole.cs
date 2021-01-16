@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyStore.Domain
+namespace MyStore.Domain.Account.Enums
 {
-    public class Class1
+    public enum ERole
     {
+        User = 1,
+        Admin = 2 
     }
 }
