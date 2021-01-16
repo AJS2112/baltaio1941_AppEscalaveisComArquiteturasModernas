@@ -10,11 +10,12 @@ namespace MyStore.Domain.Account.Entities
 {
     public class User
     {
-        public User(string username, string password)
+        public User(string email, string username, string password)
         {
             Id = Guid.NewGuid();
             Username = username;
             Password = password;
+            Email = email;
             Verified = false;
             Active = false;
             LastLoginDate = DateTime.Now;
@@ -28,6 +29,7 @@ namespace MyStore.Domain.Account.Entities
         public Guid Id { get; private set; }
         public string Username{ get; private set; }
         public string Password { get; private set; }
+        public string Email { get; private set; }
         public bool Verified { get; private set; }
         public bool Active { get; private set; }
         public DateTime LastLoginDate { get; private set; }

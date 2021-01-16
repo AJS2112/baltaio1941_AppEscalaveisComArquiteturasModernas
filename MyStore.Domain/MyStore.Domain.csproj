@@ -44,16 +44,25 @@
   <ItemGroup>
     <Compile Include="Account\Entities\User.cs" />
     <Compile Include="Account\Enums\ERole.cs" />
+    <Compile Include="Account\Events\UserEvents\OnUserRegisteredEvent.cs" />
     <Compile Include="Account\Scopes\UserScopes.cs" />
+    <Compile Include="Account\Specs\UserSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Account\Handlers\" />
     <Folder Include="Backoffice\" />
     <Folder Include="Financial\" />
     <Folder Include="StoreFront\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyStore.SharedKernel\MyStore.SharedKernel.csproj">
+      <Project>{2e711ef0-c9e1-4259-8f87-57b52f6a8ed0}</Project>
+      <Name>MyStore.SharedKernel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
