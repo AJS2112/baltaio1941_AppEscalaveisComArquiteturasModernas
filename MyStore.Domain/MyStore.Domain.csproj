@@ -45,12 +45,12 @@
     <Compile Include="Account\Entities\User.cs" />
     <Compile Include="Account\Enums\ERole.cs" />
     <Compile Include="Account\Events\UserEvents\OnUserRegisteredEvent.cs" />
+    <Compile Include="Account\Handlers\UserHandlers\IOnUserRegisterHandler.cs" />
     <Compile Include="Account\Scopes\UserScopes.cs" />
     <Compile Include="Account\Specs\UserSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Account\Handlers\" />
     <Folder Include="Backoffice\" />
     <Folder Include="Financial\" />
     <Folder Include="StoreFront\" />

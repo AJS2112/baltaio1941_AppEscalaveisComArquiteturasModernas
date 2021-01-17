@@ -10,7 +10,7 @@ namespace MyStore.Domain.Tests
         [TestMethod]
         public void VerificaUsuario()
         {
-            var user = new User("Antonio","123456");
+            var user = new User("batman@dc.com","Antonio","123456");
             user.Verify("1234");
 
             Assert.AreEqual(true, user.Verified);

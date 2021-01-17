@@ -16,7 +16,7 @@ namespace MyStore.Domain.Account.Events.UserEvents
             User = user;
             Date = DateTime.Now;
             EmailBody = EmailTemplate.WelcomeEmailBody ;
-            EmailTitle = EmailTemplate.WelcomeEmailTitle ;
+            EmailTitle = EmailTemplate.WelcomeEmailTitle;
         }
 
                 
