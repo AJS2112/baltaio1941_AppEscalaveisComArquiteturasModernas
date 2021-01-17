@@ -49,8 +49,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account\UserScopeTests.cs" />
-    <Compile Include="Account\UserTests.cs" />
+    <Compile Include="Account\Scopes\UserScopeTests.cs" />
+    <Compile Include="Account\Specs\UserSpecsTests.cs" />
+    <Compile Include="Account\Entities\UserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
