@@ -10,7 +10,7 @@ using System.Web.Http;
 
 namespace MyStore.Api.Controllers
 {
-    [RoutePrefix("api/v1/account")]
+    [RoutePrefix("api/v1")]
     public class AccountController : BaseController
     {
         private readonly IUserApplicationService _service;
@@ -21,6 +21,7 @@ namespace MyStore.Api.Controllers
         }
 
         [HttpPost]
+        [Route("account")]
         public Task<HttpResponseMessage> Post([FromBody]dynamic body)
         {
             var command = new RegisterUserCommand(

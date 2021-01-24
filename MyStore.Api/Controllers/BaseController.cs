@@ -33,5 +33,19 @@ namespace MyStore.Api.Controllers
             
             return Task.FromResult(ResponseMessage);
         }
+
+        public Task<HttpResponseMessage> CreateErrorResponse(HttpStatusCode code)
+        {
+            if (Notifications.HasNotifications())
+                ResponseMessage = Request.CreateResponse(HttpStatusCode.BadRequest,
+                    new { errors = Notifications.Notify() });
+            else
+                ResponseMessage = Request.CreateResponse(code, "");
+
+
+            return Task.FromResult(ResponseMessage);
+        }
+
+
     }
 }

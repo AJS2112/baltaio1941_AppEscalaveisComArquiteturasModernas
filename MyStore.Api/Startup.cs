@@ -1,4 +1,8 @@
-﻿using Microsoft.Owin.Cors;
+﻿using DomainNotificationHelper.Events;
+using DomainNotificationHelper.Helpers.Mvc.Containers;
+using Microsoft.Owin.Cors;
+using MyStore.Api.Helpers;
+using MyStore.CrossCutting;
 using Newtonsoft.Json;
 using Owin;
 using System;
@@ -6,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using Unity;
 
 namespace MyStore.Api
 {
@@ -14,14 +19,23 @@ namespace MyStore.Api
         public void Configurarion(IAppBuilder app)
         {
             var config = new HttpConfiguration();
-            //var container = new UnityContainer();
+            var container = new UnityContainer();
 
-            //ConfigureDependencyInjection(config, container);
+            ConfigureDependencyInjection(config, container);
             ConfigureWebApi(config);
 
             app.UseCors(CorsOptions.AllowAll);
             app.UseWebApi(config);
         }
+
+        public static void ConfigureDependencyInjection(HttpConfiguration config, UnityContainer container)
+        {
+            DependencyRegister.Register(container);
+
+            config.DependencyResolver = new UnityResolverHelper(container);
+            DomainEvent.Container = new DomainEventsContainer(config.DependencyResolver);
+        }
+
         public static void ConfigureWebApi(HttpConfiguration config)
         {
             var formatters = config.Formatters;
